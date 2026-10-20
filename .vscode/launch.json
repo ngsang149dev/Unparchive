@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:RarToZip}",
+            "name": "Debug RarToZip",
+            "target": "RarToZip",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug RarToZip"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:RarToZip}",
+            "name": "Release RarToZip",
+            "target": "RarToZip",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release RarToZip"
+        }
+    ]
+}
