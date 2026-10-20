@@ -34,7 +34,8 @@
 
 ## Yêu cầu
 
-- **macOS 15.0** trở lên (Apple Silicon & Intel).
+- **macOS 15.0** trở lên.
+- Bản phát hành build sẵn là **arm64 (Apple Silicon)**. Trên Intel, cần build lại `unrar` / `unar` cho x86_64.
 - **Không cần Xcode** — chỉ cần Command Line Tools (`xcode-select --install`).
 
 ## Cài đặt
@@ -108,6 +109,6 @@ build.sh / make_dmg.sh / make_icon.sh
 
 ## Third-party & License
 
-- **unrar** (RARLAB) — freeware, dùng để giải nén RAR. Xem [license.txt](https://www.rarlab.com/rar/unrarsrc-7.1.6.tar.gz) của RARLAB trước khi phân phối lại.
+- **unrar** (RARLAB) — freeware, dùng để giải nén RAR. Xem [RARLAB license](https://www.rarlab.com/license.htm) trước khi phân phối lại.
 - **unar / lsar** (The Unarchiver) — LGPL-2.1.
 - Mã nguồn app: **MIT** — xem [LICENSE](LICENSE).
