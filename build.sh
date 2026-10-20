@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT"
 
-APP_NAME="RarToZip"
+APP_NAME="Unparchive"
 DIST="$ROOT/dist"
 APP="$DIST/$APP_NAME.app"
 CONTENTS="$APP/Contents"
@@ -44,5 +44,5 @@ codesign --force --deep --sign - "$APP"
 
 echo "==> Built $APP"
 echo "Cài đặt: cp -R \"$APP\" /Applications/"
-echo "Dùng: double-click file .rar = giải nén tại chỗ; mở app RarToZip = cửa sổ chọn Convert/Extract"
-echo "Gắn double-click: chuột phải file .rar → Open With → RarToZip → Change All"
+echo "Dùng: double-click file .rar = giải nén tại chỗ; mở app Unparchive = cửa sổ chọn Convert/Extract"
+echo "Gắn double-click: chuột phải file .rar → Open With → Unparchive → Change All"

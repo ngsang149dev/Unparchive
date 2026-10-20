@@ -4,21 +4,21 @@
             "type": "swift",
             "request": "launch",
             "args": [],
-            "cwd": "${workspaceFolder:RarToZip}",
-            "name": "Debug RarToZip",
-            "target": "RarToZip",
+            "cwd": "${workspaceFolder:Unparchive}",
+            "name": "Debug Unparchive",
+            "target": "Unparchive",
             "configuration": "debug",
-            "preLaunchTask": "swift: Build Debug RarToZip"
+            "preLaunchTask": "swift: Build Debug Unparchive"
         },
         {
             "type": "swift",
             "request": "launch",
             "args": [],
-            "cwd": "${workspaceFolder:RarToZip}",
-            "name": "Release RarToZip",
-            "target": "RarToZip",
+            "cwd": "${workspaceFolder:Unparchive}",
+            "name": "Release Unparchive",
+            "target": "Unparchive",
             "configuration": "release",
-            "preLaunchTask": "swift: Build Release RarToZip"
+            "preLaunchTask": "swift: Build Release Unparchive"
         }
     ]
 }

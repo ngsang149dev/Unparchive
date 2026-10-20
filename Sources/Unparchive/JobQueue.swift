@@ -12,7 +12,7 @@ enum JobResult: Sendable {
 }
 
 final class JobQueue: @unchecked Sendable {
-    private let queue = DispatchQueue(label: "com.ngsang.RarToZip.jobs")
+    private let queue = DispatchQueue(label: "com.ngsang.Unparchive.jobs")
     private let converter = ConversionService()
     private let lock = NSLock()
     private var pending = 0

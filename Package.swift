@@ -2,17 +2,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "RarToZip",
+    name: "Unparchive",
     platforms: [
         .macOS(.v15)
     ],
     products: [
-        .executable(name: "RarToZip", targets: ["RarToZip"])
+        .executable(name: "Unparchive", targets: ["Unparchive"])
     ],
     targets: [
         .executableTarget(
-            name: "RarToZip",
-            path: "Sources/RarToZip",
+            name: "Unparchive",
+            path: "Sources/Unparchive",
             linkerSettings: [
                 .linkedFramework("AppKit"),
                 .linkedFramework("Carbon"),

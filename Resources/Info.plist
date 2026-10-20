@@ -5,15 +5,15 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>vi</string>
 	<key>CFBundleDisplayName</key>
-	<string>RarToZip</string>
+	<string>Unparchive</string>
 	<key>CFBundleExecutable</key>
-	<string>RarToZip</string>
+	<string>Unparchive</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.ngsang.RarToZip</string>
+	<string>com.ngsang.Unparchive</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>RarToZip</string>
+	<string>Unparchive</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -86,12 +86,12 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>RarToZip: Convert to ZIP</string>
+				<string>Unparchive: Convert to ZIP</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>convertRARService</string>
 			<key>NSPortName</key>
-			<string>RarToZip</string>
+			<string>Unparchive</string>
 			<key>NSSendTypes</key>
 			<array>
 				<string>public.file-url</string>
@@ -112,12 +112,12 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>RarToZip: Extract here</string>
+				<string>Unparchive: Extract here</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>extractRARService</string>
 			<key>NSPortName</key>
-			<string>RarToZip</string>
+			<string>Unparchive</string>
 			<key>NSSendTypes</key>
 			<array>
 				<string>public.file-url</string>

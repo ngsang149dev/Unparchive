@@ -1,7 +1,7 @@
 #!/bin/zsh
 set -euo pipefail
 
-# Đóng gói dist/RarToZip.app thành dist/RarToZip.dmg CÓ background + icon sắp xếp.
+# Đóng gói dist/Unparchive.app thành dist/Unparchive.dmg CÓ background + icon sắp xếp.
 # Cách dùng: ./make_dmg.sh
 #   - Có `dmgbuild` trong PATH  -> dùng dmgbuild (không cần cấp quyền Finder).
 #   - Không có                 -> hdiutil + AppleScript (macOS sẽ hỏi cho phép
@@ -9,8 +9,8 @@ set -euo pipefail
 #   - AppleScript bị từ chối   -> vẫn tạo DMG thường (không có layout).
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
-APP="$ROOT/dist/RarToZip.app"
-DMG="$ROOT/dist/RarToZip.dmg"
+APP="$ROOT/dist/Unparchive.app"
+DMG="$ROOT/dist/Unparchive.dmg"
 BG="$ROOT/Resources/dmg-background.png"
 
 if [[ ! -d "$APP" ]]; then
@@ -26,7 +26,7 @@ if command -v dmgbuild >/dev/null 2>&1; then
   cat > "$SETTINGS" <<EOF
 files = ['$APP']
 symlinks = {'Applications': '/Applications'}
-icon_locations = {'RarToZip.app': (160, 180), 'Applications': (480, 180)}
+icon_locations = {'Unparchive.app': (160, 180), 'Applications': (480, 180)}
 background = '$BG'
 window_rect = ((240, 240), (640, 428))
 default_view = 'icon-view'
@@ -37,7 +37,7 @@ show_toolbar = False
 show_sidebar = False
 show_pathbar = False
 EOF
-  dmgbuild -s "$SETTINGS" "RarToZip" "$DMG"
+  dmgbuild -s "$SETTINGS" "Unparchive" "$DMG"
   rm -f "$SETTINGS"
   echo "Đã tạo: $DMG"
   ls -lh "$DMG"
@@ -47,21 +47,21 @@ fi
 # ---------- 2) hdiutil + AppleScript ----------
 echo "==> Tạo DMG (hdiutil + Finder layout)"
 WORK="$(mktemp -d)"
-RW="$WORK/RarToZip-rw.dmg"
+RW="$WORK/Unparchive-rw.dmg"
 MNT="$WORK/mnt"
 mkdir -p "$MNT"
 
-hdiutil create -size 120m -fs HFS+ -volname "RarToZip" -ov "$RW" >/dev/null
+hdiutil create -size 120m -fs HFS+ -volname "Unparchive" -ov "$RW" >/dev/null
 hdiutil attach "$RW" -nobrowse -mountpoint "$MNT" >/dev/null
 
-cp -R "$APP" "$MNT/RarToZip.app"
+cp -R "$APP" "$MNT/Unparchive.app"
 ln -s /Applications "$MNT/Applications"
 mkdir -p "$MNT/.background"
 cp "$BG" "$MNT/.background/background.png"
 
 if ! osascript <<'APPLESCRIPT'
 tell application "Finder"
-  tell disk "RarToZip"
+  tell disk "Unparchive"
     open
     set current view of container window to icon view
     set toolbar visible of container window to false
@@ -71,7 +71,7 @@ tell application "Finder"
     set arrangement of viewOptions to not arranged
     set icon size of viewOptions to 96
     set background picture of viewOptions to file ".background:background.png"
-    set position of item "RarToZip.app" of container window to {160, 180}
+    set position of item "Unparchive.app" of container window to {160, 180}
     set position of item "Applications" of container window to {480, 180}
     close
     open

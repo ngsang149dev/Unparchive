@@ -3,7 +3,7 @@ import Foundation
 
 enum DefaultHandler {
     static func claimIfPossible() {
-        let bundleID = Bundle.main.bundleIdentifier ?? "com.ngsang.RarToZip"
+        let bundleID = Bundle.main.bundleIdentifier ?? "com.ngsang.Unparchive"
         let types = [
             "com.rarlab.rar-archive",
             "org.nongnu.unar.rar-archive",

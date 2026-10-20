@@ -72,7 +72,7 @@ final class MainWindowController: NSWindowController {
             backing: .buffered,
             defer: false
         )
-        window.title = "RarToZip"
+        window.title = "Unparchive"
         window.isReleasedWhenClosed = false
         window.center()
 
@@ -392,7 +392,7 @@ final class MainWindowController: NSWindowController {
     private func showError(_ message: String) {
         guard let window = window else { return }
         let alert = NSAlert()
-        alert.messageText = "RarToZip"
+        alert.messageText = "Unparchive"
         alert.informativeText = message
         alert.alertStyle = .warning
         alert.addButton(withTitle: "OK")

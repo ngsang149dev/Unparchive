@@ -1,7 +1,7 @@
-# RarToZip
+# Unparchive
 
 <p align="center">
-  <img src="Resources/AppIcon-1024.png" width="140" alt="RarToZip icon">
+  <img src="Resources/AppIcon-1024.png" width="140" alt="Unparchive icon">
 </p>
 
 <p align="center">
@@ -28,7 +28,7 @@
   - **Nhỏ** (deflate) — ZIP nhỏ hơn, chậm hơn một chút.
 - **Engine 2 tầng:** `unrar` (RARLAB — nhanh) là chính, `unar` fallback khi gặp file lạ.
 - Hỗ trợ **RAR mọi phiên bản** (RAR1–RAR5), **RAR có mật khẩu**, **multi-volume** (`.part1.rar`, `.r00`, …).
-- **Services menu** (chuột phải → Services → RarToZip): Convert / Extract.
+- **Services menu** (chuột phải → Services → Unparchive): Convert / Extract.
 - Chạy nền, thông báo qua Notification Center.
 - App icon riêng, DMG cài đặt có background + icon sắp xếp.
 
@@ -42,18 +42,18 @@
 
 ### Cách 1 — Tải bản phát hành (khuyến nghị)
 
-1. Vào tab **[Releases](../../releases)** và tải `RarToZip.dmg`.
-2. Mở DMG, kéo **RarToZip** vào **Applications**.
-3. Gắn double-click: chuột phải một file `.rar` → **Open With** → **RarToZip** → **Change All…**
+1. Vào tab **[Releases](../../releases)** và tải `Unparchive.dmg`.
+2. Mở DMG, kéo **Unparchive** vào **Applications**.
+3. Gắn double-click: chuột phải một file `.rar` → **Open With** → **Unparchive** → **Change All…**
 
 ### Cách 2 — Build từ source
 
 ```bash
-git clone https://github.com/ngsang149dev/RarToZip.git
-cd RarToZip
-./build.sh          # tạo dist/RarToZip.app
-./make_dmg.sh       # (tuỳ chọn) tạo dist/RarToZip.dmg
-cp -R dist/RarToZip.app /Applications/
+git clone https://github.com/ngsang149dev/Unparchive.git
+cd Unparchive
+./build.sh          # tạo dist/Unparchive.app
+./make_dmg.sh       # (tuỳ chọn) tạo dist/Unparchive.dmg
+cp -R dist/Unparchive.app /Applications/
 ```
 
 > `build.sh` tự đóng gói kèm `unrar` / `unar` / `lsar` trong `Contents/Helpers` và ký ad-hoc.
@@ -65,12 +65,12 @@ cp -R dist/RarToZip.app /Applications/
 | Double-click `.rar` | Giải nén tại chỗ (cùng thư mục) |
 | Mở app | Cửa sổ chuyển đổi |
 | Kéo-thả `.rar` vào cửa sổ | Điền form tự động |
-| Chuột phải → Services → RarToZip | Convert / Extract |
+| Chuột phải → Services → Unparchive | Convert / Extract |
 
 ## Cấu trúc dự án
 
 ```
-Sources/RarToZip/
+Sources/Unparchive/
   main.swift                 # entry point + menu bar
   AppDelegate.swift          # flow mở file / cửa sổ / Services
   MainWindowController.swift # cửa sổ pre-setup + kéo-thả

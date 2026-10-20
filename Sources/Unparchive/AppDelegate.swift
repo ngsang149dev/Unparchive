@@ -64,7 +64,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private func extractSilently(urls: [URL]) {
         let archives = ArchiveURL.expand(urls)
         guard !archives.isEmpty else {
-            Notifier.alert(title: "RarToZip", message: "Không tìm thấy file RAR hợp lệ.")
+            Notifier.alert(title: "Unparchive", message: "Không tìm thấy file RAR hợp lệ.")
             return
         }
         jobs.enqueue(
@@ -125,7 +125,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let appMenuItem = NSMenuItem()
         mainMenu.addItem(appMenuItem)
         let appMenu = NSMenu()
-        appMenu.addItem(withTitle: "Thoát RarToZip", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        appMenu.addItem(withTitle: "Thoát Unparchive", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         appMenuItem.submenu = appMenu
 
         // File menu
