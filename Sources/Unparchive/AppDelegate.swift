@@ -8,6 +8,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var windowController: MainWindowController?
     private var launchBuffer: [URL] = []
     private var launchSettled = false
+    private var backgroundMode = false
 
     // MARK: - NSApplicationDelegate
 
@@ -54,9 +55,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         launchSettled = true
         let files = launchBuffer
         launchBuffer = []
+        if backgroundMode { return }
         if files.isEmpty {
             showMainWindow()
         } else {
+            backgroundMode = true
             extractSilently(urls: files)
         }
     }
@@ -65,6 +68,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let archives = ArchiveURL.expand(urls)
         guard !archives.isEmpty else {
             Notifier.alert(title: "Unparchive", message: "Không tìm thấy file RAR hợp lệ.")
+            quitIfBackground()
             return
         }
         jobs.enqueue(
@@ -83,13 +87,24 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                     )
                 }
             },
-            completion: {}
+            completion: {
+                self.quitIfBackground()
+            }
         )
+    }
+
+    private func quitIfBackground() {
+        guard backgroundMode, windowController == nil else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            NSApp.terminate(nil)
+        }
     }
 
     // MARK: - Window
 
     private func showMainWindow(preloadedFile: URL? = nil, action: JobMode = .convertToZip) {
+        backgroundMode = false
+        NSApp.setActivationPolicy(.regular)
         if windowController == nil {
             windowController = MainWindowController()
         }
@@ -113,6 +128,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func extractRARService(_ pboard: NSPasteboard, userData: String, error: AutoreleasingUnsafeMutablePointer<NSString?>) {
+        if windowController == nil { backgroundMode = true }
         extractSilently(urls: Self.urls(from: pboard))
     }
 

@@ -20,7 +20,7 @@
 
 ## Tính năng
 
-- **Double-click file `.rar`** → giải nén ngay tại thư mục chứa file (giống hành vi native của macOS).
+- **Double-click file `.rar`** → giải nén ngay tại thư mục chứa file, chạy nền hoàn toàn (không mở cửa sổ, không hiện trên Dock).
 - **Mở app** → cửa sổ pre-setup: chọn file RAR, thư mục đích, tên file, và chọn **Convert sang ZIP** hoặc **Giải nén**.
 - **Kéo-thả** file `.rar` / `.cbr` vào cửa sổ để điền nhanh.
 - **Convert RAR → ZIP** với 2 mức nén:
